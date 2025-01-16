@@ -64,20 +64,8 @@
     },
     "image_banner_fm3fQi": {
       "type": "image-banner",
-      "blocks": {
-        "heading_8nP7Ld": {
-          "type": "heading",
-          "settings": {
-            "heading": "40% SALE CAMISETAS :D",
-            "heading_size": "h0"
-          }
-        }
-      },
-      "block_order": [
-        "heading_8nP7Ld"
-      ],
       "settings": {
-        "image": "shopify://shop_images/761022d16c638843b0599bd4853245b3.jpg",
+        "image": "shopify://shop_images/download_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "desktop_content_position": "middle-center",
