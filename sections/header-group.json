@@ -17,7 +17,7 @@
         ".svg-wrapper {width: 30px; height: 30px;}",
         ".header__menu-item span {font-weight: bold; text-decoration: none;}",
         ".header__menu-item:hover {color: purple; text-decoration: none;}",
-        ".header__heading-logo{margin-left: -100px}"
+        ".header__heading-logo {margin-left: -20px;}"
       ],
       "settings": {
         "logo_position": "middle-left",
