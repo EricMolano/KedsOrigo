@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "custom_css": [],
       "settings": {
         "color_scheme": "",
         "show_line_separator": true,
@@ -39,12 +40,14 @@
       "type": "header",
       "custom_css": [
         ".svg-wrapper {width: 30px; height: 30px;}",
-        ".header__active-menu-item {text-decoration: none;}"
+        ".header__active-menu-item {text-decoration: none;}",
+        ".header__menu-item span {font-weight: bold;}",
+        ".header__menu-item span:hover {color: purple;}"
       ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": true,
         "color_scheme": "scheme-2",
