@@ -61,20 +61,6 @@
     "image_banner_fm3fQi": {
       "type": "image-banner",
       "blocks": {
-        "heading_NnUNGi": {
-          "type": "heading",
-          "settings": {
-            "heading": "Banner de imagen",
-            "heading_size": "h1"
-          }
-        },
-        "text_AppeKx": {
-          "type": "text",
-          "settings": {
-            "text": "Ofrece a los clientes información sobre las imágenes del banner o el contenido de la plantilla.",
-            "text_style": "body"
-          }
-        },
         "buttons_qdjc8X": {
           "type": "buttons",
           "settings": {
@@ -88,8 +74,6 @@
         }
       },
       "block_order": [
-        "heading_NnUNGi",
-        "text_AppeKx",
         "buttons_qdjc8X"
       ],
       "settings": {
