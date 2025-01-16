@@ -87,12 +87,6 @@
             "collection": ""
           }
         },
-        "featured_collection_tHU7c8": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
         "featured_collection_EhXkyL": {
           "type": "featured_collection",
           "settings": {
@@ -102,7 +96,6 @@
       },
       "block_order": [
         "featured_collection_QajKHx",
-        "featured_collection_tHU7c8",
         "featured_collection_EhXkyL"
       ],
       "settings": {
