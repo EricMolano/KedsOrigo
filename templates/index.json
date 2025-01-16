@@ -14,11 +14,15 @@
       "blocks": {
         "slide_EUWy9A": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/download_5.png"
+          }
         },
         "slide_YhxJUh": {
           "type": "slide",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/banner-ropa-1024x576.jpg"
+          }
         }
       },
       "block_order": [
