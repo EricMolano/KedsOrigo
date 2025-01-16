@@ -41,7 +41,7 @@
         "collection_dPUBfN"
       ],
       "settings": {
-        "scrollbar": false,
+        "scrollbar": true,
         "arrows": false,
         "title": "Featured collection",
         "heading_size": "h1",
