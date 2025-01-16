@@ -39,6 +39,34 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_rHjdPn": {
+          "type": "announcement",
+          "settings": {
+            "text": "Te damos la bienvenida a nuestra tienda",
+            "link": ""
+          }
+        },
+        "announcement_C8QVgk": {
+          "type": "announcement",
+          "settings": {
+            "text": "Te damos la bienvenida a nuestra tienda",
+            "link": ""
+          }
+        },
+        "announcement_t9EdTC": {
+          "type": "announcement",
+          "settings": {
+            "text": "Te damos la bienvenida a nuestra tienda",
+            "link": ""
+          }
+        },
+        "announcement_qfLpyy": {
+          "type": "announcement",
+          "settings": {
+            "text": "Te damos la bienvenida a nuestra tienda",
+            "link": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -48,6 +76,10 @@
         }
       },
       "block_order": [
+        "announcement_rHjdPn",
+        "announcement_C8QVgk",
+        "announcement_t9EdTC",
+        "announcement_qfLpyy",
         "announcement-bar-0"
       ],
       "custom_css": [],
@@ -55,7 +87,7 @@
         "color_scheme": "",
         "show_line_separator": true,
         "show_social": false,
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "enable_country_selector": false,
         "enable_language_selector": false
