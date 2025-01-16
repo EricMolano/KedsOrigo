@@ -22,37 +22,29 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
+            "heading": "<strong>GRACIAS POR VER</strong>",
             "menu": "footer"
           }
         },
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+            "heading": "<strong>SERVICIO AL CLIENTE</strong>",
+            "subtext": "<p>Horario: 6 AM - 12 PM<br/>Telefono: XXXXXXX</p>"
           }
         }
       },
       "block_order": [
-        "footer-0",
         "footer-1",
         "footer-2"
       ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_heading": "<strong>¡INGRESA TU CORREO PARA SABER NUESTRAS MEJORES PROMOS 2025!</strong>",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,
