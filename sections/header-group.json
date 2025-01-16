@@ -42,7 +42,7 @@
         ".svg-wrapper {width: 30px; height: 30px;}",
         ".header__active-menu-item {text-decoration: none;}",
         ".header__menu-item span {font-weight: bold;}",
-        ".header__menu-item span:hover {color: purple;}"
+        ".header__menu-item span:hover {color: purple; text-decoration: none}"
       ],
       "settings": {
         "logo_position": "middle-left",
