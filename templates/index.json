@@ -12,31 +12,144 @@
     "slider-banner": {
       "type": "custom-slider",
       "blocks": {
-        "slide1": {
+        "slide_EUWy9A": {
           "type": "slide",
           "settings": {}
         },
-        "slide2": {
-          "type": "slide",
-          "settings": {}
-        },
-        "slide3": {
-          "type": "slide",
-          "settings": {}
-        },
-        "slide4": {
-          "type": "slide",
-          "settings": {}
-        },
-        "slide5": {
+        "slide_YhxJUh": {
           "type": "slide",
           "settings": {}
         }
       },
+      "block_order": [
+        "slide_EUWy9A",
+        "slide_YhxJUh"
+      ],
       "settings": {}
+    },
+    "desplegable_TMt36L": {
+      "type": "desplegable",
+      "blocks": {
+        "collection_dPUBfN": {
+          "type": "Collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_dPUBfN"
+      ],
+      "settings": {
+        "scrollbar": false,
+        "arrows": false,
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "boton_texto": "",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_fm3fQi": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_NnUNGi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Banner de imagen",
+            "heading_size": "h1"
+          }
+        },
+        "text_AppeKx": {
+          "type": "text",
+          "settings": {
+            "text": "Ofrece a los clientes información sobre las imágenes del banner o el contenido de la plantilla.",
+            "text_style": "body"
+          }
+        },
+        "buttons_qdjc8X": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Etiqueta de botón",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Etiqueta de botón",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_NnUNGi",
+        "text_AppeKx",
+        "buttons_qdjc8X"
+      ],
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "collection_list_tDR7wL": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_QajKHx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_tHU7c8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_EhXkyL": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_QajKHx",
+        "featured_collection_tHU7c8",
+        "featured_collection_EhXkyL"
+      ],
+      "settings": {
+        "title": "Colecciones",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "slider-banner"
+    "slider-banner",
+    "desplegable_TMt36L",
+    "image_banner_fm3fQi",
+    "collection_list_tDR7wL"
   ]
 }
