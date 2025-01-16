@@ -16,15 +16,13 @@
       "custom_css": [
         ".svg-wrapper {width: 30px; height: 30px;}",
         ".header__menu-item span {font-weight: bold; text-decoration: none;}",
-        ".header__menu-item:hover {color: purple; text-decoration: none;}",
-        ".svg-wrapper > svg {height: 100%; width: 100%; stroke: black; /* Color inicial del contorno */ transition: stroke 0.3s ease; /* Suaviza la transición del color del contorno */}",
-        ".svg-wrapper > svg:hover {stroke: purple; /* Contorno púrpura al hacer hover */}"
+        ".header__menu-item:hover {color: purple; text-decoration: none;}"
       ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
-        "sticky_header_type": "always",
+        "sticky_header_type": "reduce-logo-size",
         "show_line_separator": true,
         "color_scheme": "scheme-2",
         "menu_color_scheme": "scheme-2",
