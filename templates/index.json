@@ -46,7 +46,7 @@
       ],
       "settings": {
         "scrollbar": true,
-        "arrows": false,
+        "arrows": true,
         "title": "¡PROMO CAMISETAS 2024!",
         "heading_size": "h1",
         "description": "",
