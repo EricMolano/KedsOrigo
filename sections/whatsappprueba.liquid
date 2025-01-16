@@ -1,0 +1,60 @@
+{% schema %}
+{
+  "name": "Sección WhatsApp",
+  "settings": [
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número de WhatsApp",
+      "default": "+12345678900"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+      "default": "Contáctanos por WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "pre_filled_message",
+      "label": "Mensaje predefinido",
+      "default": "¡Hola! Me gustaría más información."
+    }
+  ]
+}
+{% endschema %}
+
+<section>
+  <div class="whatsapp-section">
+    <!-- Sección de WhatsApp -->
+    <a
+      href="https://api.whatsapp.com/send?phone={{ section.settings.whatsapp_number | url_encode }}&text={{ section.settings.pre_filled_message | url_encode }}"
+      target="_blank"
+      class="whatsapp-button"
+      rel="noopener noreferrer"
+    >
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</section>
+
+<style>
+.whatsapp-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.whatsapp-button:hover {
+  background-color: #20b857;
+}
+</style>
