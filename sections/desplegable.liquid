@@ -1,0 +1,433 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  .slider {position:relative;}
+
+  
+    {% if section.settings.arrows %}
+    .apolo-{{ section.id }} .swiper-button-prev, .apolo-{{ section.id }} .swiper-button-next {
+      opacity:1 !important;
+    }
+    {% else %}
+    .apolo-{{ section.id }} .swiper-button-prev, .apolo-{{ section.id }} .swiper-button-next {
+        opacity:0 !important;
+      }
+    {% endif %}
+
+  
+  .swiper-button-prev, .swiper-button-next {
+    display:flex !important;
+  }
+  .apolo_slide:hover{opacity:.7}
+  .desktop{display:block}
+  .movil{display:none}
+  .slider{overflow: hidden;}
+  .apolo:hover{opacity:.7;}
+  .card__inner {
+    filter: brightness(95%);
+  }
+  .button_collection_apolo{
+      background: #ece8e8;
+      border-radius: 25px;
+      padding: 1%;
+      color: black;
+      border: none;
+      cursor: pointer;
+  }
+  .button_collection_apolo.active{
+      background: #e7da0a;
+      color: black;
+  }
+  .swiper-scrollbar-drag {
+     display: block !important;
+   }
+  .swiper-container {
+   padding-bottom: 20px;
+   height: max-content;
+   }
+  .swiper-scrollbar {
+        background: #d6d6d6;
+  }
+  .swiper-container-horizontal >.swiper-scrollbar {
+        border-radius: 2px;
+        height: 10px;
+        width: 400px  !important;
+        bottom: 0;
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+  .apolo-slider{display:none; }
+  .sp-container{margin-bottom:10px}
+   @media only screen and (max-width: 700px) and (min-width: 1px) {  
+.desktop{display:none}
+.movil{display:block} 
+.button_collection_apolo{
+    padding: 2% !important;
+  }
+
+  .swiper-container-horizontal>.swiper-scrollbar {
+
+    left: 50% !important;
+ 
+    width: 50% !important;
+   }
+    .color-thumbs_apolo img{
+  width:16px;
+  height: 16px;
+} 
+}
+  .collection__title  h2{
+      font-style: normal;
+    font-weight: 700;
+    color: #1b2b38;
+    font-size: 36px;
+    line-height: 32px;
+}
+  .flex-title{
+        display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .section__action-link {
+      flex-shrink: 0;
+      font-weight: 700;
+  }
+
+{%- endstyle -%}
+ 
+<div class="apolo-{{ section.id }} color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="collection section-{{ section.id }}-padding">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+        <div class="flex-title">
+          {%- if section.settings.title != blank -%}
+            <h2 class="  inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.title }}
+            </h2>
+            <a href="{{ section.blocks[0].settings.collection.url }}" class="section__action-link link">{{ section.settings.boton_texto }}</a> 
+          {%- endif -%}
+           </div>
+    
+          <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {%- if section.settings.show_description -%}
+              {{ section.settings.description -}}
+            {%- endif %}
+          </div>
+  
+    </div>
+    {% for block in section.blocks %}
+          <div class="page-width slider slide{{ section.id }}">
+            <div class="swiper-container swiper-container{{ section.id }}">
+            <div class="sp-container swiper-wrapper">
+            {%- for product in block.settings.collection.products -%}
+      
+              <div class="swiper-slide">
+                    {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    section_id: section.id,
+                    %}
+              </div>
+            {%- endfor -%}
+            </div>
+        
+             <!-- scrollbar -->
+            <div class="swiper-scrollbar swiper-scrollbar{{ section.id }}"></div>
+        
+            <!-- buttons -->
+            <div class="swiper-button-prev swiper-button-prev{{ section.id }}"></div>
+            <div class="swiper-button-next swiper-button-next{{ section.id }}"></div>
+          </div> 
+          </div>  
+    {%- endfor -%}
+    <script>       
+    document.addEventListener('DOMContentLoaded', function() {
+  
+   
+
+    var $swiperSelector = $('.swiper-container{{ section.id }}');
+     
+
+  $swiperSelector.each(function (index) {
+  var $this = $(this);
+  $this.addClass('swiper-slider-{{ section.id }}-' + index);
+
+  var dragSize = $this.data('drag-size') ? $this.data('drag-size') : 50;
+  var freeMode = $this.data('free-mode') ? $this.data('free-mode') : false;
+  var loop = $this.data('loop') ? $this.data('loop') : false;
+  var slidesDesktop = $this.data('slides-desktop') ? $this.data('slides-desktop') : 4;
+  var slidesTablet = $this.data('slides-tablet') ? $this.data('slides-tablet') : 4;
+  var slidesMobile = $this.data('slides-mobile') ? $this.data('slides-mobile') : 2;
+  var spaceBetween = $this.data('space-between') ? $this.data('space-between') : 20;
+
+  var swiper = new Swiper('.swiper-slider-{{ section.id }}-' + index, {
+        direction: 'horizontal',
+        loop: loop,
+        freeMode: freeMode,
+        spaceBetween: spaceBetween,
+        breakpoints: {
+          1920: {
+            slidesPerView: slidesDesktop },
+    
+          992: {
+            slidesPerView: slidesTablet },
+    
+          320: {
+            slidesPerView: slidesMobile } },
+    
+    
+        navigation: {
+          nextEl: '.swiper-button-next{{ section.id }}',
+          prevEl: '.swiper-button-prev{{ section.id }}' },
+    
+        scrollbar: {
+          el: '.swiper-scrollbar{{ section.id }}',
+          draggable: true,
+          dragSize: dragSize } });
+    });
+  
+  
+  
+});
+    </script>
+  </div>
+</div>
+
+   {% unless section.settings.scrollbar %}
+      <style>
+        .swiper-scrollbar{{ section.id }}{
+          display:none !important;
+        }
+      </style>
+   {% endunless %} 
+ 
+{% schema %}
+{
+  "name": "Productos RenatoDev",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "scrollbar",
+      "default": false,
+      "label": "Active Barra"
+    },
+     {
+      "type": "checkbox",
+      "id": "arrows",
+      "default": false,
+      "label": "Active Flechas"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "Titulo"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Tamaño1"
+        },
+        {
+          "value": "h1",
+          "label": "Tamaño2"
+        },
+        {
+          "value": "h0",
+          "label": "Tamaño3"
+        }
+      ],
+      "default": "h1",
+      "label": "Tamaño2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripcion"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Mostrar Descripcion",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "description_style",
+      "label": "t:sections.featured-collection.settings.description_style.label",
+      "options": [
+        {
+          "value": "body",
+          "label": "Normal"
+        },
+        {
+          "value": "subtitle",
+          "label": "Minusculas"
+        },
+        {
+          "value": "uppercase",
+          "label": "Mayusculas"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "text",
+      "id": "boton_texto",
+      "label": "Texto del boton"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colores",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Cabecera"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adaptar Imagne"
+        },
+        {
+          "value": "portrait",
+          "label": "Retrato"
+        },
+        {
+          "value": "square",
+          "label": "Cuadrado"
+        }
+      ],
+      "default": "adapt",
+      "label": "Adaptar Imagen"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "default"
+        },
+        {
+          "value": "arch",
+          "label": "arco"
+        },
+        {
+          "value": "blob",
+          "label": "Gota"
+        },
+        {
+          "value": "diamond",
+          "label": "Diamantes"
+        },
+        {
+          "value": "parallelogram",
+          "label": "Paralelogramo"
+        },
+        {
+          "value": "round",
+          "label": "Redondo"
+        }
+      ],
+      "default": "default",
+      "label": "default",
+      "info": "Forma de Imagen" 
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Mostrar Imagen Secundaria"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Mostrar Proveedor"
+    },
+    {
+      "type": "header",
+      "content": "Margenes"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margen Superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margen Inferior",
+      "default": 36
+    }
+  ],
+  "blocks": [
+      {
+        "type": "Collection",
+        "name": "Collection",
+        "limit": 1,
+        "settings": [
+          {
+             "type": "collection",
+              "id": "collection",
+              "label": "Coleccion"
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Productos RenatoDev"
+    }
+  ]
+}
+{% endschema %}

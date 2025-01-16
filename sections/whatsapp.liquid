@@ -1,0 +1,638 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+<div id="shopify-section-apolowhatsap" class="shopify-section">
+  <style>
+  /* CSS Multiple Whatsapp Chat */
+.whatsapp-name {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  line-height: 0.5;
+}
+
+#whatsapp-chat {
+  box-sizing: border-box !important;
+  outline: none !important;
+  position: fixed;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+  bottom: 90px;
+  right: 30px;
+  overflow: hidden;
+  z-index: 99;
+  animation-name: showchat;
+  animation-duration: 1s;
+  transform: scale(1);
+}
+
+
+
+
+
+.header-chat {
+
+  background: #009688;
+  background: #095e54;
+  color: #fff;
+  padding: 14px;
+}
+
+.header-chat h3 {
+  margin: 0 0 10px;
+}
+
+.header-chat p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.info-avatar {
+  position: relative;
+}
+
+.info-avatar img {
+ 
+  width: 50px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+a.informasi {
+  padding: 20px;
+  display: block;
+  overflow: hidden;
+  animation-name: showhide;
+  animation-duration: 0.5s;
+}
+
+a.informasi:hover {
+  background: #f1f1f1;
+}
+
+.info-chat span {
+  display: block;
+}
+
+#get-label,
+span.chat-label {
+  font-size: 12px;
+  color: #888;
+}
+
+#get-nama,
+span.chat-nama {
+  margin: 5px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+}
+
+#get-label,
+#get-nama {
+  color: #fff;
+}
+
+span.my-number {
+  display: none;
+}
+
+/* .blanter-msg {
+  color: #444;
+  padding: 20px;
+  font-size: 12.5px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+} */
+textarea#chat-input {
+  border: none;
+  font-family: "Arial", sans-serif;
+  width: 100%;
+  outline: none;
+  resize: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+a#send-it {
+     width: 40px;
+    font-weight: 700;
+    padding: 10px 10px 0;
+    background: #eee;
+    display: flex;
+}
+a#send-it svg {
+  fill: #a6a6a6;
+  height: 24px;
+  width: 24px;
+}
+
+.first-msg {
+  background: transparent;
+  padding: 30px;
+  text-align: center;
+}
+.first-msg span {
+  background: #e2e2e2;
+  color: #333;
+  font-size: 14.2px;
+  line-height: 1.7;
+  border-radius: 10px;
+  padding: 15px 20px;
+  display: inline-block;
+}
+
+.start-chat .blanter-msg {
+  display: flex;
+  height: 40px;
+}
+
+#get-number {
+  display: none;
+}
+
+a.close-chat {
+ position: absolute;
+    top: 5px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+@keyframes ZpjSY {
+  0% {
+    background-color: #b6b5ba;
+  }
+  15% {
+    background-color: #111111;
+  }
+  25% {
+    background-color: #b6b5ba;
+  }
+}
+@keyframes hPhMsj {
+  15% {
+    background-color: #b6b5ba;
+  }
+  25% {
+    background-color: #111111;
+  }
+  35% {
+    background-color: #b6b5ba;
+  }
+}
+@keyframes iUMejp {
+  25% {
+    background-color: #b6b5ba;
+  }
+  35% {
+    background-color: #111111;
+  }
+  45% {
+    background-color: #b6b5ba;
+  }
+}
+@keyframes showhide {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@keyframes showchat {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  #whatsapp-chat {
+    width: auto;
+    left: 5%;
+    right: 5%;
+    font-size: 80%;
+  }
+}
+.hide {
+  display: none;
+  animation-name: showhide;
+  animation-duration: 0.5s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.show {
+  display: block;
+  animation-name: showhide;
+  animation-duration: 0.5s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.whatsapp-message-container {
+  display: flex;
+  z-index: 1;
+}
+
+.whatsapp-message {
+  padding: 7px 14px 6px;
+  background-color: white;
+  border-radius: 0px 8px 8px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  opacity: 0;
+  transform-origin: center top 0px;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+  margin-top: 4px;
+  margin-left: -54px;
+  max-width: calc(100% - 66px);
+}
+
+.whatsapp-chat-body {
+  padding: 20px 20px 80px 10px;
+  background-color: #e6ddd4;
+  position: relative;
+}
+.whatsapp-chat-body::before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.08;
+  background-image: url("https://elfsight.com/assets/chats/patterns/whatsapp.png");
+}
+
+.dAbFpq {
+  display: flex;
+  z-index: 1;
+}
+
+.eJJEeC {
+  background-color: white;
+  width: 52.5px;
+  height: 32px;
+  border-radius: 16px;
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: center;
+  align-items: center;
+  margin-left: 10px;
+  opacity: 0;
+  transition: all 0.1s ease 0s;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+}
+
+.hFENyl {
+  position: relative;
+  display: flex;
+}
+
+.ixsrax {
+  height: 5px;
+  width: 5px;
+  margin: 0px 2px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  top: 0px;
+  background-color: #9e9da2;
+  animation-name: ZpjSY;
+}
+
+.dRvxoz {
+  height: 5px;
+  width: 5px;
+  margin: 0px 2px;
+  background-color: #b6b5ba;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  top: 0px;
+  animation-name: hPhMsj;
+}
+
+.kAZgZq {
+  padding: 7px 14px 6px;
+  background-color: white;
+  border-radius: 0px 8px 8px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  opacity: 0;
+  transform-origin: center top 0px;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+  margin-top: 4px;
+  margin-left: -54px;
+  max-width: calc(100% - 66px);
+}
+.kAZgZq::before {
+  position: absolute;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  top: 0px;
+  left: -12px;
+  width: 12px;
+  height: 19px;
+}
+
+.bMIBDo {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.iSpIQi {
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 4px;
+  color: #111111;
+}
+
+.iSpIQi {
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 4px;
+  color: #111111;
+}
+
+    .cqCDVm {
+      text-align: right;
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 16px;
+      color: rgba(17, 17, 17, 0.5);
+      margin-right: -8px;
+      margin-bottom: -4px;
+    }
+    .joinchat__button {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 2;
+    bottom: 8px;
+    right: 8px;
+    height: 60px;
+    min-width: 60px;
+    background: #25d366;
+    color: inherit;
+    border-radius: calc(60px / 2);
+    box-shadow: 1px 6px 24px 0 rgba(7, 94, 84, .24);
+    cursor: pointer;
+    transition: background-color .2s linear;
+    }
+    .joinchat__button__send {
+
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+    padding: calc(60px* 0.18);
+    margin: 0;
+    overflow: hidden;
+    }
+    .joinchat_svg__chat{
+      fill: none;
+    }
+    .joinchat_svg__plain{
+      fill: white;
+    }
+    .joinchat__button__sendtext {
+    padding: 0 4px 0 24px;
+    border-radius: 60px;
+    font-weight: 600;
+    line-height:60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: none;
+      color:white;
+          font-size: 15px;
+}
+    .joinchat__button:active, .joinchat__button:hover {
+    opacity:.8;
+}
+ img.emoji {
+    display: inline !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 0.07em !important;
+    vertical-align: -0.1em !important;
+    background: none !important;
+    padding: 0 !important;
+}
+</style>
+
+<!-- partial:index.partial.html -->
+<div id="whatsapp-chat" class="hide">
+  <div class="header-chat">
+    <div class="head-home">
+     <svg style="fill:white" class="joinchat__wa" width="120" height="28" viewBox="0 0 120 28"><title>WhatsApp</title><path d="M117.2 17c0 .4-.2.7-.4 1-.1.3-.4.5-.7.7l-1 .2c-.5 0-.9 0-1.2-.2l-.7-.7a3 3 0 0 1-.4-1 5.4 5.4 0 0 1 0-2.3c0-.4.2-.7.4-1l.7-.7a2 2 0 0 1 1.1-.3 2 2 0 0 1 1.8 1l.4 1a5.3 5.3 0 0 1 0 2.3zm2.5-3c-.1-.7-.4-1.3-.8-1.7a4 4 0 0 0-1.3-1.2c-.6-.3-1.3-.4-2-.4-.6 0-1.2.1-1.7.4a3 3 0 0 0-1.2 1.1V11H110v13h2.7v-4.5c.4.4.8.8 1.3 1 .5.3 1 .4 1.6.4a4 4 0 0 0 3.2-1.5c.4-.5.7-1 .8-1.6.2-.6.3-1.2.3-1.9s0-1.3-.3-2zm-13.1 3c0 .4-.2.7-.4 1l-.7.7-1.1.2c-.4 0-.8 0-1-.2-.4-.2-.6-.4-.8-.7a3 3 0 0 1-.4-1 5.4 5.4 0 0 1 0-2.3c0-.4.2-.7.4-1 .1-.3.4-.5.7-.7a2 2 0 0 1 1-.3 2 2 0 0 1 1.9 1l.4 1a5.4 5.4 0 0 1 0 2.3zm1.7-4.7a4 4 0 0 0-3.3-1.6c-.6 0-1.2.1-1.7.4a3 3 0 0 0-1.2 1.1V11h-2.6v13h2.7v-4.5c.3.4.7.8 1.2 1 .6.3 1.1.4 1.7.4a4 4 0 0 0 3.2-1.5c.4-.5.6-1 .8-1.6.2-.6.3-1.2.3-1.9s-.1-1.3-.3-2c-.2-.6-.4-1.2-.8-1.6zm-17.5 3.2l1.7-5 1.7 5h-3.4zm.2-8.2l-5 13.4h3l1-3h5l1 3h3L94 7.3h-3zm-5.3 9.1l-.6-.8-1-.5a11.6 11.6 0 0 0-2.3-.5l-1-.3a2 2 0 0 1-.6-.3.7.7 0 0 1-.3-.6c0-.2 0-.4.2-.5l.3-.3h.5l.5-.1c.5 0 .9 0 1.2.3.4.1.6.5.6 1h2.5c0-.6-.2-1.1-.4-1.5a3 3 0 0 0-1-1 4 4 0 0 0-1.3-.5 7.7 7.7 0 0 0-3 0c-.6.1-1 .3-1.4.5l-1 1a3 3 0 0 0-.4 1.5 2 2 0 0 0 1 1.8l1 .5 1.1.3 2.2.6c.6.2.8.5.8 1l-.1.5-.4.4a2 2 0 0 1-.6.2 2.8 2.8 0 0 1-1.4 0 2 2 0 0 1-.6-.3l-.5-.5-.2-.8H77c0 .7.2 1.2.5 1.6.2.5.6.8 1 1 .4.3.9.5 1.4.6a8 8 0 0 0 3.3 0c.5 0 1-.2 1.4-.5a3 3 0 0 0 1-1c.3-.5.4-1 .4-1.6 0-.5 0-.9-.3-1.2zM74.7 8h-2.6v3h-1.7v1.7h1.7v5.8c0 .5 0 .9.2 1.2l.7.7 1 .3a7.8 7.8 0 0 0 2 0h.7v-2.1a3.4 3.4 0 0 1-.8 0l-1-.1-.2-1v-4.8h2V11h-2V8zm-7.6 9v.5l-.3.8-.7.6c-.2.2-.7.2-1.2.2h-.6l-.5-.2a1 1 0 0 1-.4-.4l-.1-.6.1-.6.4-.4.5-.3a4.8 4.8 0 0 1 1.2-.2 8.3 8.3 0 0 0 1.2-.2l.4-.3v1zm2.6 1.5v-5c0-.6 0-1.1-.3-1.5l-1-.8-1.4-.4a10.9 10.9 0 0 0-3.1 0l-1.5.6c-.4.2-.7.6-1 1a3 3 0 0 0-.5 1.5h2.7c0-.5.2-.9.5-1a2 2 0 0 1 1.3-.4h.6l.6.2.3.4.2.7c0 .3 0 .5-.3.6-.1.2-.4.3-.7.4l-1 .1a21.9 21.9 0 0 0-2.4.4l-1 .5c-.3.2-.6.5-.8.9-.2.3-.3.8-.3 1.3s.1 1 .3 1.3c.1.4.4.7.7 1l1 .4c.4.2.9.2 1.3.2a6 6 0 0 0 1.8-.2c.6-.2 1-.5 1.5-1a4 4 0 0 0 .2 1H70l-.3-1v-1.2zm-11-6.7c-.2-.4-.6-.6-1-.8-.5-.2-1-.3-1.8-.3-.5 0-1 .1-1.5.4a3 3 0 0 0-1.3 1.2v-5h-2.7v13.4H53v-5.1c0-1 .2-1.7.5-2.2.3-.4.9-.6 1.6-.6.6 0 1 .2 1.3.6.3.4.4 1 .4 1.8v5.5h2.7v-6c0-.6 0-1.2-.2-1.6 0-.5-.3-1-.5-1.3zm-14 4.7l-2.3-9.2h-2.8l-2.3 9-2.2-9h-3l3.6 13.4h3l2.2-9.2 2.3 9.2h3l3.6-13.4h-3l-2.1 9.2zm-24.5.2L18 15.6c-.3-.1-.6-.2-.8.2A20 20 0 0 1 16 17c-.2.2-.4.3-.7.1-.4-.2-1.5-.5-2.8-1.7-1-1-1.7-2-2-2.4-.1-.4 0-.5.2-.7l.5-.6.4-.6v-.6L10.4 8c-.3-.6-.6-.5-.8-.6H9c-.2 0-.6.1-.9.5C7.8 8.2 7 9 7 10.7c0 1.7 1.3 3.4 1.4 3.6.2.3 2.5 3.7 6 5.2l1.9.8c.8.2 1.6.2 2.2.1.6-.1 2-.8 2.3-1.6.3-.9.3-1.5.2-1.7l-.7-.4zM14 25.3c-2 0-4-.5-5.8-1.6l-.4-.2-4.4 1.1 1.2-4.2-.3-.5A11.5 11.5 0 0 1 22.1 5.7 11.5 11.5 0 0 1 14 25.3zM14 0A13.8 13.8 0 0 0 2 20.7L0 28l7.3-2A13.8 13.8 0 1 0 14 0z"></path></svg>
+    </div>
+    <div class="get-new hide">
+      <div id="get-label"></div>
+      <div id="get-nama"></div>
+    </div>
+  </div>
+  <div class="home-chat">
+
+  </div>
+  <div class="start-chat">
+    <div pattern="https://elfsight.com/assets/chats/patterns/whatsapp.png" class="WhatsappChat__Component-sc-1wqac52-0 whatsapp-chat-body">
+      <div class="WhatsappChat__MessageContainer-sc-1wqac52-1 dAbFpq">
+        <div style="opacity: 0;" class="WhatsappDots__Component-pks5bf-0 eJJEeC">
+          <div class="WhatsappDots__ComponentInner-pks5bf-1 hFENyl">
+            <div class="WhatsappDots__Dot-pks5bf-2 WhatsappDots__DotOne-pks5bf-3 ixsrax"></div>
+            <div class="WhatsappDots__Dot-pks5bf-2 WhatsappDots__DotTwo-pks5bf-4 dRvxoz"></div>
+            <div class="WhatsappDots__Dot-pks5bf-2 WhatsappDots__DotThree-pks5bf-5 kXBtNt"></div>
+          </div>
+        </div>
+        <div style="opacity: 1;" class="WhatsappChat__Message-sc-1wqac52-4 kAZgZq">
+       <div class="joinchat__message">Hola <img draggable="false" role="img" class="emoji" alt="👋" src="https://s.w.org/images/core/emoji/15.0.3/svg/1f44b.svg" width="100" height="100"><br>¿En qué podemos ayudarte?</div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <div id="chat-input" class="  joinchat__button">
+		<div class="joinchat__button__open"></div>
+			<div class="joinchat__button__sendtext">Abrir chat</div>
+			<svg class="joinchat__button__send" width="60" height="60" viewBox="0 0 400 400" stroke-linecap="round" stroke-width="33">
+				<path class="joinchat_svg__plain" d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427"></path>
+				<path class="joinchat_svg__chat" d="M318.087 318.087c-52.982 52.982-132.708 62.922-195.725 29.82l-80.449 10.18 10.358-80.112C18.956 214.905 28.836 134.99 81.913 81.913c65.218-65.217 170.956-65.217 236.174 0 42.661 42.661 57.416 102.661 44.265 157.316"></path>
+			</svg>					
+	</div>
+    
+  </div>
+  <div id="get-number"></div><a class="close-chat" href="javascript:void">×</a>
+</div>
+  
+ 
+  
+<!-- partial -->
+
+<style>
+  .wsp-whatsapp{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:25px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.websensepro-whatsapp-icon{
+  height:50px;
+  width:50px;
+}
+
+@media(max-width:768px){
+  .wsp-whatsapp {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+.tooltip {
+      visibility: hidden;
+    width: 199px;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    left: -160px;
+    bottom: 25%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+    font-size: 11px;
+}
+
+.wsp-whatsapp:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+  
+</style>
+      
+
+<a href="javascript:void" class="blantershow-chat wsp-whatsapp">
+<svg class="websensepro-whatsapp-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="800" width="1200" viewBox="-93.2412 -156.2325 808.0904 937.395"><defs><linearGradient x1=".5" y1="0" x2=".5" y2="1" id="a"><stop stop-color="#20B038" offset="0%"></stop><stop stop-color="#60D66A" offset="100%"></stop></linearGradient><linearGradient x1=".5" y1="0" x2=".5" y2="1" id="b"><stop stop-color="#F9F9F9" offset="0%"></stop><stop stop-color="#FFF" offset="100%"></stop></linearGradient><linearGradient xlink:href="#a" id="f" x1="270.265" y1="1.184" x2="270.265" y2="541.56" gradientTransform="scale(.99775 1.00225)" gradientUnits="userSpaceOnUse"></linearGradient><linearGradient xlink:href="#b" id="g" x1="279.952" y1=".811" x2="279.952" y2="560.571" gradientTransform="scale(.99777 1.00224)" gradientUnits="userSpaceOnUse"></linearGradient><filter x="-.056" y="-.062" width="1.112" height="1.11" filterUnits="objectBoundingBox" id="c"><feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur></filter><filter x="-.082" y="-.088" width="1.164" height="1.162" filterUnits="objectBoundingBox" id="d"><feOffset dy="-4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.21 0" in="shadowBlurOuter1"></feColorMatrix></filter><path d="M576.337 707.516c-.018-49.17 12.795-97.167 37.15-139.475L574 423.48l147.548 38.792c40.652-22.23 86.423-33.944 133.002-33.962h.12c153.395 0 278.265 125.166 278.33 278.98.025 74.548-28.9 144.642-81.446 197.373C999 957.393 929.12 986.447 854.67 986.48c-153.42 0-278.272-125.146-278.333-278.964z" id="e"></path></defs><g fill="none" fill-rule="evenodd"><g transform="matrix(1 0 0 -1 -542.696 1013.504)" fill="#000" fill-rule="nonzero" filter="url(#c)"><use filter="url(#d)" xlink:href="#e" width="100%" height="100%"></use><use fill-opacity=".2" xlink:href="#e" width="100%" height="100%"></use></g><path transform="matrix(1 0 0 -1 41.304 577.504)" fill-rule="nonzero" fill="url(#f)" d="M2.325 274.421c-.014-47.29 12.342-93.466 35.839-134.166L.077 1.187l142.314 37.316C181.6 17.133 225.745 5.856 270.673 5.84h.12c147.95 0 268.386 120.396 268.447 268.372.03 71.707-27.87 139.132-78.559 189.858-50.68 50.726-118.084 78.676-189.898 78.708-147.968 0-268.398-120.386-268.458-268.358"></path><path transform="matrix(1 0 0 -1 31.637 586.837)" fill-rule="nonzero" fill="url(#g)" d="M2.407 283.847c-.018-48.996 12.784-96.824 37.117-138.983L.072.814l147.419 38.654c40.616-22.15 86.346-33.824 132.885-33.841h.12c153.26 0 278.02 124.724 278.085 277.994.026 74.286-28.874 144.132-81.374 196.678-52.507 52.544-122.326 81.494-196.711 81.528-153.285 0-278.028-124.704-278.09-277.98zm87.789-131.724l-5.503 8.74C61.555 197.653 49.34 240.17 49.36 283.828c.049 127.399 103.73 231.044 231.224 231.044 61.74-.025 119.765-24.09 163.409-67.763 43.639-43.67 67.653-101.726 67.635-163.469-.054-127.403-103.739-231.063-231.131-231.063h-.09c-41.482.022-82.162 11.159-117.642 32.214l-8.444 5.004L66.84 66.86z"></path><path d="M242.63 186.78c-5.205-11.57-10.684-11.803-15.636-12.006-4.05-.173-8.687-.162-13.316-.162-4.632 0-12.161 1.74-18.527 8.693-6.37 6.953-24.322 23.761-24.322 57.947 0 34.19 24.901 67.222 28.372 71.862 3.474 4.634 48.07 77.028 118.694 104.88 58.696 23.146 70.64 18.542 83.38 17.384 12.74-1.158 41.11-16.805 46.9-33.03 5.791-16.223 5.791-30.128 4.054-33.035-1.738-2.896-6.37-4.633-13.319-8.108-6.95-3.475-41.11-20.287-47.48-22.603-6.37-2.316-11.003-3.474-15.635 3.482-4.633 6.95-17.94 22.596-21.996 27.23-4.053 4.643-8.106 5.222-15.056 1.747-6.949-3.485-29.328-10.815-55.876-34.485-20.656-18.416-34.6-41.16-38.656-48.116-4.053-6.95-.433-10.714 3.052-14.178 3.12-3.113 6.95-8.11 10.424-12.168 3.467-4.057 4.626-6.953 6.942-11.586 2.316-4.64 1.158-8.698-.579-12.172-1.737-3.475-15.241-37.838-21.42-51.576" fill="#FFF"></path></g></svg>
+    <span class="tooltip">¿Necesitas ayuda?</span> <!-- Añadido -->
+  </a>
+
+  
+<script>
+$(document).on("click", "#chat-input", function () {
+  var b = $("#get-number").text() || "";
+  var c;
+
+  {% if product.title == blank %}
+    c = "{{section.settings.whatsapp_msg}}";
+  {% else %}
+    c = "Quiero saber sobre este producto: {{product.url}}";
+  {% endif %}
+
+  // Detectar dispositivo
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // URL base según dispositivo
+  var whatsappBaseUrl = isMobile ? "whatsapp://send" : "https://web.whatsapp.com/send";
+  if (isIOS) {
+    whatsappBaseUrl = "whatsapp://send"; // Forzar esquema para iOS
+  }
+
+  // Crear la URL final
+  var g = `${whatsappBaseUrl}?phone={{section.settings.whatsapp_number}}${b}&text=${encodeURIComponent(c)}`;
+
+  // Abrir WhatsApp
+  window.open(g, "_blank");
+});
+
+// Manejo de otros eventos
+$(document).on("click", ".informasi", function () {
+  $("#get-number").text($(this).children(".my-number").text());
+  $(".start-chat,.get-new").addClass("show").removeClass("hide");
+  $(".home-chat,.head-home").addClass("hide").removeClass("show");
+  $("#get-nama").text($(this).children(".info-chat").children(".chat-nama").text());
+  $("#get-label").text($(this).children(".info-chat").children(".chat-label").text());
+});
+
+$(document).on("click", ".close-chat", function () {
+  $("#whatsapp-chat").addClass("hide").removeClass("show");
+});
+
+$(document).on("click", ".blantershow-chat", function () {
+  $("#whatsapp-chat").addClass("show").removeClass("hide");
+});
+
+  </script>  
+  
+
+
+</div>
+
+{% schema %}
+  {
+    "name": "WSP - Whatsapp Button",
+    "settings": [
+      {
+  "type": "checkbox",
+  "id": "ver_whatsapp",
+  "label": "Show Whatsapp",
+  "default": true
+},
+      {
+  "type": "text",
+  "id": "whatsapp_number",
+  "label": "Por favor ingrese su numero"
+},
+            {
+  "type": "text",
+  "id": "whatsapp_msg",
+  "label": "Ingrese el mensaje por defecto"
+}
+
+    ],
+  "presets": [
+    {
+      "name": "WSP - Whatsapp Button"
+    }
+  ]
+  }
+{% endschema %}
