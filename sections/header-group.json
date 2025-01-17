@@ -16,12 +16,7 @@
       "custom_css": [
         ".svg-wrapper {width: 30px; height: 30px;}",
         ".header__menu-item span {font-weight: bold; text-decoration: none;}",
-        ".header__menu-item:hover {color: purple; text-decoration: none;}",
-        "details[open]>.header__menu-item {text-decoration: underline;}",
-        "summary.list-menu__item {padding-right: 2.7rem;}",
-        "details:hover > summary {text-decoration: underline;}",
-        "details:hover[open] > .header__menu-item,details[open]:hover > .header__menu-item {display: block;}",
-        "details summary::-webkit-details-marker {display: none;}"
+        ".header__menu-item:hover {color: purple; text-decoration: none;}"
       ],
       "settings": {
         "logo_position": "middle-left",
