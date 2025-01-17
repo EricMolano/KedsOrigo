@@ -77,11 +77,38 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "final_43zzY8": {
+      "type": "final",
+      "blocks": {
+        "image_UxATwA": {
+          "type": "image",
+          "settings": {
+            "banner_image": "shopify://shop_images/banner-inferior-the-north-face-colombia-chaquetas-web-2025.png",
+            "banner_link": ""
+          }
+        },
+        "image_py4YdY": {
+          "type": "image",
+          "settings": {
+            "banner_image": "shopify://shop_images/banner-inferior-vectiv-the-north-face-col-dic-2024-web.png",
+            "banner_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_UxATwA",
+        "image_py4YdY"
+      ],
+      "settings": {
+        "section_title": "Nuestro Destacado"
+      }
     }
   },
   "order": [
     "slider-banner",
     "desplegable_TMt36L",
-    "image_banner_fm3fQi"
+    "image_banner_fm3fQi",
+    "final_43zzY8"
   ]
 }
