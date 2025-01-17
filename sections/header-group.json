@@ -18,7 +18,8 @@
         ".header__menu-item span {font-weight: bold; text-decoration: none;}",
         ".header__menu-item:hover {color: purple; text-decoration: none;}",
         "details {position: relative;}",
-        "details:hover > .header__menu-item {display: block; text-decoration: underline;}"
+        "details:hover > .header__menu-item {display: block; text-decoration: underline;}",
+        "summary.list-menu__item {padding-right: 2.7rem;}"
       ],
       "settings": {
         "logo_position": "middle-left",
