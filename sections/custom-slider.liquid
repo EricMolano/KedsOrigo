@@ -21,35 +21,38 @@
 </div>
 
 <style>
-    .swiper {
-      width: 100%;
-      height: 500px;
-    }
+  .swiper {
+    width: 100%;
+    height: 500px; /* Altura fija para el slider */
+  }
 
-    .swiper-slide {
-      text-align: center;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .swiper-slide img {
+    display: block;
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: 100%; /* Ajusta la imagen a la altura del contenedor */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción sin distorsión */
+  }
 
-    .swiper-slide h2 {
-      font-size: 2rem;
-      color: #333;
-    }
+  .swiper-slide h2 {
+    font-size: 2rem;
+    color: #333;
+  }
 
-    /* Ajustes Responsivos */
+  /* Ajustes Responsivos */
   @media (max-width: 768px) {
+    .swiper {
+      height: 300px; /* Reducir la altura del slider en pantallas medianas */
+    }
     .swiper-slide img {
-      object-fit: contain; /* Cambiar a contain para pantallas pequeñas */
+      object-fit: cover; /* Asegura que la imagen llene el contenedor */
     }
     .swiper-slide h2 {
       font-size: 1.5rem; /* Reducir el tamaño del texto */
@@ -57,11 +60,14 @@
   }
 
   @media (max-width: 480px) {
+    .swiper {
+      height: 200px; /* Reducir aún más la altura del slider en pantallas pequeñas */
+    }
     .swiper-slide img {
-      height: auto; /* Deja que la altura sea dinámica */
+      object-fit: cover; /* Mantén la imagen ajustada al contenedor */
     }
     .swiper-slide h2 {
-      font-size: 1.2rem; /* Más pequeño para pantallas muy pequeñas */
+      font-size: 1.2rem; /* Reducir aún más el tamaño del texto */
     }
   }
 </style>
