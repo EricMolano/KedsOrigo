@@ -38,24 +38,24 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_qfLpyy": {
-          "type": "announcement",
-          "settings": {
-            "text": "Te damos la bienvenida a nuestra tienda",
-            "link": ""
-          }
-        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
             "text": "¡Bienvenido a la mejor ropa urbana!",
             "link": ""
           }
+        },
+        "announcement_qfLpyy": {
+          "type": "announcement",
+          "settings": {
+            "text": "Te damos la bienvenida a nuestra tienda",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement_qfLpyy",
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_qfLpyy"
       ],
       "custom_css": [],
       "settings": {
