@@ -1,6 +1,135 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Sección Zoom con Lupa",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "imagen_product",
+      "label": "Imagen del producto"
+    },
+    {
+      "type": "range",
+      "id": "zoom_level",
+      "label": "Nivel de zoom",
+      "min": 1,
+      "max": 3,
+      "step": 0.1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "lens_size",
+      "label": "Tamaño de la lupa (px)",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "default": 150
+    }
+  ]
+}
 {% endschema %}
+
+<section id="zoom-lupa-section">
+  <div class="magnifier-container">
+    {% if section.settings.imagen_product %}
+      <!-- NOTA: Ajusta width y height según tu diseño deseado -->
+      <img
+        src="{{ section.settings.imagen_product | img_url: '1024x1024' }}"
+        alt="Imagen con lupa"
+        class="magnifier-image"
+        id="zoomImage"
+        width="400"
+        height="400"
+      >
+    {% endif %}
+    <div class="lens" id="lensElem"></div>
+  </div>
+</section>
+
+<style>
+  .magnifier-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  /* Imagen principal */
+  .magnifier-image {
+    width: 100%;
+    max-width: 400px; /* Ajusta según tu diseño */
+    display: block;
+  }
+
+  /* Lente de zoom */
+  .lens {
+    position: absolute;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    background-repeat: no-repeat;
+    background-position: center;
+    visibility: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var img = document.getElementById('zoomImage');
+    var lens = document.getElementById('lensElem');
+    if (!img || !lens) return;
+
+    var zoomLevel = {{ section.settings.zoom_level }};
+    var lensSize = {{ section.settings.lens_size }};
+
+    // Ajusta el tamaño de la lente
+    lens.style.width = lensSize + 'px';
+    lens.style.height = lensSize + 'px';
+
+    // Establece la imagen de fondo dentro de la lente
+    lens.style.backgroundImage = "url('" + img.src + "')";
+    lens.style.backgroundSize = (img.width * zoomLevel) + "px " + (img.height * zoomLevel) + "px";
+
+    // Función para obtener la posición del cursor en la imagen
+    function getCursorPos(e) {
+      var rect = img.getBoundingClientRect();
+      var x = e.pageX - rect.left - window.pageXOffset;
+      var y = e.pageY - rect.top - window.pageYOffset;
+      return { x: x, y: y };
+    }
+
+    // Mueve la lente cuando el mouse se desplaza
+    function moveLens(e) {
+      e.preventDefault();
+      var pos = getCursorPos(e);
+      var x = pos.x - (lensSize / 2);
+      var y = pos.y - (lensSize / 2);
+
+      // Evita que el lente se salga de la imagen
+      if (x > img.width - lensSize) x = img.width - lensSize;
+      if (x < 0) x = 0;
+      if (y > img.height - lensSize) y = img.height - lensSize;
+      if (y < 0) y = 0;
+
+      // Ajusta la posición del lente
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+
+      // Ajusta la posición de fondo para el zoom
+      lens.style.backgroundPosition =
+        "-" + (x * zoomLevel) + "px -" + (y * zoomLevel) + "px";
+    }
+
+    // Eventos para mostrar/ocultar la lente y moverla
+    img.addEventListener("mousemove", moveLens);
+    lens.addEventListener("mousemove", moveLens);
+
+    img.addEventListener("mouseenter", function() {
+      lens.style.visibility = "visible";
+    });
+
+    img.addEventListener("mouseleave", function() {
+      lens.style.visibility = "hidden";
+    });
+  });
+</script>
