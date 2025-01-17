@@ -77,51 +77,11 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
-    },
-    "collage_4yiJNx": {
-      "type": "collage",
-      "blocks": {
-        "image_9rQKXx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/banner-inferior-the-north-face-colombia-chaquetas-web-2025.png"
-          }
-        },
-        "product_hJUFTP": {
-          "type": "product",
-          "settings": {
-            "product": "camiseta-negra-manga-corta",
-            "second_image": false
-          }
-        },
-        "collection_fdYqwW": {
-          "type": "collection",
-          "settings": {
-            "collection": "coleccion-de-camisetas"
-          }
-        }
-      },
-      "block_order": [
-        "image_9rQKXx",
-        "product_hJUFTP",
-        "collection_fdYqwW"
-      ],
-      "settings": {
-        "heading": "<strong>¡Observa!</strong>",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "none",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "slider-banner",
     "desplegable_TMt36L",
-    "image_banner_fm3fQi",
-    "collage_4yiJNx"
+    "image_banner_fm3fQi"
   ]
 }
