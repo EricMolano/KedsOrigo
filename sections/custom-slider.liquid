@@ -3,7 +3,12 @@
     {% for block in section.blocks %}
       <div class="swiper-slide">
         {% if block.settings.image != blank %}
-          <img src="{{ block.settings.image | image_url: width: 1500 }}" alt="Slider {{ forloop.index }}" width="1500" height="500">
+          <img
+            src="{{ block.settings.image | image_url: width: 1500 }}"
+            alt="Slider {{ forloop.index }}"
+            width="1500"
+            height="500"
+          >
         {% else %}
           <h2>Insertar imagen</h2>
         {% endif %}
@@ -16,93 +21,86 @@
 </div>
 
 <style>
-.swiper {
-  width: 100%;
-  height: 500px;
-}
+  /* Estilo del contenedor Swiper */
+  .swiper {
+    width: 100%;
+    height: auto; /* Permitir que se adapte a la altura del contenido */
+  }
 
-.swiper-slide {
-  text-align: center;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* Slides */
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  /* Imágenes dentro de los slides */
+  .swiper-slide img {
+    display: block;
+    width: 100%; /* Asegurarse de que las imágenes ocupen el ancho completo */
+    height: auto; /* Mantener la relación de aspecto */
+    object-fit: cover; /* Asegurar que las imágenes se adapten bien */
+  }
 
-.swiper-slide h2 {
-  font-size: 2rem;
-  color: #333;
-}
+  /* Texto de Placeholder */
+  .swiper-slide h2 {
+    font-size: 2rem;
+    color: #333;
+    padding: 20px;
+  }
+
+  /* Ajustes Responsivos */
+  @media (max-width: 768px) {
+    .swiper-slide img {
+      object-fit: contain; /* Cambiar a contain para pantallas pequeñas */
+    }
+    .swiper-slide h2 {
+      font-size: 1.5rem; /* Reducir el tamaño del texto */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .swiper-slide img {
+      height: auto; /* Deja que la altura sea dinámica */
+    }
+    .swiper-slide h2 {
+      font-size: 1.2rem; /* Más pequeño para pantallas muy pequeñas */
+    }
+  }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  new Swiper(".mySwiper", {
-    direction: "horizontal",
-    loop: true,
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper(".mySwiper", {
+      direction: "horizontal",
+      loop: true,
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      breakpoints: {
+        // Ajustes responsivos para el Swiper
+        768: {
+          slidesPerView: 2, /* Mostrar 2 slides en pantallas medianas */
+          slidesPerGroup: 2
+        },
+        1024: {
+          slidesPerView: 3, /* Mostrar 3 slides en pantallas grandes */
+          slidesPerGroup: 3
+        }
+      }
+    });
   });
-});
 </script>
-
-{% schema %}
-{
-  "name": "Custom Slider",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Imagen"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom Slider",
-      "blocks": [
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
