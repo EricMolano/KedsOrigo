@@ -64,28 +64,50 @@
 
 <style>
   .banner-section {
-    text-align: center;
-    padding: 20px;
-  }
-  .banner-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  .banner-item img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 10px;
-  }
-  .placeholder {
-    width: 500px;
-    height: 300px;
-    background: #f3f3f3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 18px;
-  }
+      text-align: center;
+      padding: 40px 20px; /* Espaciado mayor */
+    }
+
+    .banner-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap; /* Permite ajustar en pantallas pequeñas */
+    }
+
+
+  para hacer mas grande el banner
+    .banner-item {
+      flex: 1; /* Se expanden proporcionalmente */
+      max-width: 48%; /* Mantiene el tamaño en pantallas grandes */
+    }
+
+    .banner-item img {
+      width: 100%;
+      height: 400px; /* Aumenta la altura de los banners */
+      object-fit: cover; /* Evita que se deformen */
+      border-radius: 10px;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 400px;
+      background: #f3f3f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 18px;
+    }
+
+    /* Ajuste para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      .banner-container {
+        flex-direction: column;
+      }
+
+      .banner-item {
+        max-width: 100%;
+      }
+    }
 </style>
